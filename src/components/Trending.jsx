@@ -1,0 +1,47 @@
+import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+
+const Trending = () => {
+
+    const apiKey = 'ad6fb9de597140d6888525b8855e22b1'
+    const imgApi = 'https://image.tmdb.org/t/p/original'
+
+    const [ trending, setTrending ] = useState([])
+
+    useEffect(() => {
+        getTrending()
+    }, [])
+
+    const getTrending = () => {
+        fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            setTrending(data.results)
+        })
+    }
+    
+    return (
+        <>
+            <div className="popularList">
+                {trending.map((movie) => {
+                    return (
+                        <NavLink to={'/details/'+movie.id}>
+                            <div key={movie.id} className="movie">
+                                <img src={imgApi + movie.poster_path} alt={movie.title} />
+                                <div className="movieT" >
+                                    <h3> {movie.title} </h3>
+                                    <h4> {movie.vote_average} </h4>
+                                </div>
+                                {/* <h5> {movie.release_date} </h5> */}
+                            </div>
+                        </NavLink>
+                    )
+                })}
+            </div>
+        </>
+    )
+
+}
+
+export default Trending;
