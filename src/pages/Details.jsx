@@ -6,7 +6,7 @@ function Details() {
   const [ movieDetails, setMovieDetails ] = useState([])
   const [ companies, setCompanies ] = useState([])
 
-  const apiKey = 'ad6fb9de597140d6888525b8855e22b1'
+  const apiKey = 'apikey'
   const imgApi = 'https://image.tmdb.org/t/p/original'
   const params = useParams()
 
