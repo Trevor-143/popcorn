@@ -5,7 +5,7 @@ function Genres() {
 
   const [ genre, setGenre ] = useState([])
   const params = useParams()
-  const apiKey = 'ad6fb9de597140d6888525b8855e22b1'
+  const apiKey = 'apikey'
   const imgApi = 'https://image.tmdb.org/t/p/original'
 
 
