@@ -12,7 +12,7 @@ const HomeMovie = () => {
     }, [])
 
     const getHomeMovie = () => {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(data => {
             // console.log(data.results[0])
