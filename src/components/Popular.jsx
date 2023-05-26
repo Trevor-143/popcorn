@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Popular = () => {
 
-    const apiKey = 'ad6fb9de597140d6888525b8855e22b1'
+    const apiKey = 'apikey'
     const imgApi = 'https://image.tmdb.org/t/p/original'
 
     const [ popular, setPopular ] = useState([])
