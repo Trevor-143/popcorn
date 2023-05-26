@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const HomeMovie = () => {
 
-    const apiKey = 'ad6fb9de597140d6888525b8855e22b1'
+    const apiKey = 'apiKey'
     const imgApi = 'https://image.tmdb.org/t/p/original'
 
     const [ homeMovie, setHomeMovie ] = useState([])
