@@ -17,7 +17,7 @@ function Genres() {
     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${name}`)
     .then(resp => resp.json())
     .then(data => {
-      console.log(data.results)
+      // console.log(data.results)
       setGenre(data.results)
     })
   }
@@ -25,11 +25,17 @@ function Genres() {
 
   return (
     <>
-      <div className="popularList gens">
+      <div className="gens">
         {genre.map((movie) => {
           return (
-            <div key={movie.id} className="movie">
-              <NavLink to={'/details/'+movie.id}><img src={imgApi + movie.poster_path} alt={movie.title} /></NavLink>
+            <div key={movie.id} className="movieGenre">
+              <NavLink to={'/details/'+movie.id}>
+                { movie.poster_path ? (
+                  <img src={imgApi + movie.poster_path} alt={movie.title} />
+                ): (
+                  <img src="/src/assets/defaultImg.webp" alt="default image" />
+                ) }
+              </NavLink>
               <div className="movieT" >
                 <h3> {movie.title} </h3>
                 <h4> {movie.vote_average} </h4>

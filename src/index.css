@@ -80,16 +80,21 @@ main {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  height: 100vh;
+
 }
 
 .genreMenu {
   position: fixed;
   left: 0;
   top: 0;
-  max-width: 50vh;
-  overflow: hidden;
+  max-height: 100vh;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 3rem;
 }
+
+
+
 
 .genreMenu::-webkit-scrollbar {
   display: none;
@@ -185,6 +190,9 @@ main {
   .side {
     display: none;
   }
+  .genreMenu {
+    display: none;
+  }
   
 }
 @media (max-width:550px) {
@@ -193,6 +201,23 @@ main {
   }
   form input{
     width: 100%;
+  }
+}
+@media (min-width:600px) {
+  .gens .movieGenre:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+    max-width: 700px;
+    width: 100%;
+    max-height: 400px;
+    height: 100%;
+    margin: auto;
+  }
+  .gens .movieGenre:nth-child(1) img {
+    max-width: 700px;
+    width: 100%;
+    max-height: 400px;
+    height: 100%;
   }
 }
 
@@ -251,62 +276,53 @@ form button {
   flex-direction: row;
   flex-wrap: nowrap;
   overflow: auto;
+  height: fit-content;
 }
 .popularList::-webkit-scrollbar {
   display: none;
 }
 
-.gens {
+.gensR, .gens {
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
+  padding: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 
-.gensR {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+.movieResults, .movieGenre {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  border-radius: 1rem;
+}
+.movieResults img, .movieGenre img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 1rem;
 }
 
-.gens .movie:nth-child(1) {
-  grid-column: span 2;
-  grid-row: span 2;
-  max-width: 550px;
-  width: 100%;
-  height: 350px;
-}
-.gens .movie:nth-child(1) img {
-  max-width: 550px;
-  width: 100%;
-}
+
+
 
 .movie {
   position: relative;
-  width: 250px;
-  height: 150px;
+  max-width: 300px;
+  min-width: 300px;
+  width: 100%;
+  height: 200px;
   margin: 1rem;
   border-radius: 1rem;
 }
 .movie img {
   border-radius: 1rem;
-  height: 100%;
-  width: 250px;
+  height: 200px;
+  max-width: 300px;
+  width: 100%;
   object-fit: cover;
 }
 
-.movie {
-  position: relative;
-  width: 250px;
-  height: 150px;
-  margin: 1rem;
-  border-radius: 1rem;
-}
-.movie img {
-  border-radius: 1rem;
-  height: 100%;
-  width: 250px;
-  object-fit: cover;
-}
+
 .movieT {
   position: absolute;
   bottom: 0;

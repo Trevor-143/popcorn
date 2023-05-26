@@ -18,7 +18,7 @@ function Details() {
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      // console.log(data)
       setMovieDetails(data)
       setCompanies(data.production_companies)
     })
@@ -27,7 +27,11 @@ function Details() {
   return (
     <>
       <div className="hMovie">
-        <img src={imgApi+movieDetails.backdrop_path} alt={movieDetails.title} />
+        { movieDetails.backdrop_path ? (
+          <img src={imgApi+movieDetails.backdrop_path} alt={movieDetails.title} />
+        ): (
+          <img src="/src/assets/defaultImg.webp" alt="default image" />
+        ) }
         <div className="hMovieInfo miniInfo">
           <h3> {movieDetails.title} </h3>
           <h5> {movieDetails.tagline} </h5>

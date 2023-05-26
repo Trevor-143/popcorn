@@ -16,7 +16,7 @@ const Upcoming = () => {
         fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             setUpcoming(data.results)
         })
     }
@@ -26,9 +26,13 @@ const Upcoming = () => {
             <div className="popularList">
                 {upcoming.map((movie) => {
                     return (
-                        <NavLink to={'/details/'+movie.id}>
-                            <div key={movie.id} className="movie">
-                                <img src={imgApi + movie.poster_path} alt={movie.title} />
+                        <NavLink to={'/details/'+movie.id} key={movie.id} >
+                            <div className="movie">
+                                { movie.poster_path ? (
+                                    <img src={imgApi + movie.poster_path} alt={movie.title} />
+                                ): (
+                                    <img src="/src/assets/defaultImg.webp" alt="default image" />
+                                ) }
                                 <div className="movieT" >
                                     <h3> {movie.title} </h3>
                                     <h4> {movie.vote_average} </h4>
